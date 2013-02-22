@@ -11,6 +11,7 @@ set softtabstop=2               " Let backspace delete indent
 set noautochdir                 " do not automatically change directory
 set pastetoggle=<F10>            " pastetoggle (sane indentation on pastes)
 set listchars=
+set wrap
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
