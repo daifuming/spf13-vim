@@ -22,8 +22,9 @@ set listchars=
 set wrap
 colo hybrid
 " I like a dark tab bg
-hi TabLine ctermfg=Black ctermbg=White 
+hi TabLine ctermfg=Black ctermbg=White
 hi TabLineFill ctermfg=Black ctermbg=White
+hi Title ctermfg=Black ctermbg=Black
 
 " autocomplete rails
 "let g:rubycomplete_rails = 1
