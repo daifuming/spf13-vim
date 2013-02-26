@@ -1,7 +1,8 @@
 " Modeline and Notes {
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker ft=vim
+" }
 
-" spf13 overrides
+" spf13 overrides {
 UnBundle 'spf13/vim-autoclose'
 UnBundle 'flazz/vim-colorschemes'
 UnBundle 'spf13/vim-colors'
@@ -12,7 +13,7 @@ let g:indent_guides_enable_on_vim_startup = 0
 autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 
-" spf13 .vimrc overrides
+" spf13 .vimrc overrides {
 set shiftwidth=2                " Use indents of 2 spaces
 set tabstop=2                   " An indentation every 2 columns
 set softtabstop=2               " Let backspace delete indent
@@ -22,12 +23,18 @@ set listchars=
 set wrap
 colo hybrid
 " I like a dark tab bg
-hi TabLine ctermfg=Black ctermbg=White
-hi TabLineFill ctermfg=Black ctermbg=White
-hi Title ctermfg=Black ctermbg=Black
+:hi TabLine ctermfg=Black ctermbg=White
+:hi TabLineFill ctermfg=Black ctermbg=White
+:hi Title ctermfg=Black ctermbg=Black
 
 " autocomplete rails
 "let g:rubycomplete_rails = 1
+"   }
+" }
+
+" Mappings {
+" open ctag in new tab
+nmap <leader>ct <C-w><C-]><C-w>T
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
@@ -47,6 +54,7 @@ nmap <leader>l <C-W>10<
 " remap jj to escape
 inoremap jj <ESC>
 inoremap jk <ESC>
+" }
 
 
 " Plugins {
