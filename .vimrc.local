@@ -3,7 +3,14 @@
 
 " spf13 overrides
 UnBundle 'spf13/vim-autoclose'
+UnBundle 'flazz/vim-colorschemes'
+UnBundle 'spf13/vim-colors'
+Bundle   'jonaustin/vim-colors'
+Bundle   'w0ng/vim-hybrid'
 let g:indent_guides_enable_on_vim_startup = 0
+" for some reason the default does not include ruby
+autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+
 
 " spf13 .vimrc overrides
 set shiftwidth=2                " Use indents of 2 spaces
@@ -13,9 +20,13 @@ set noautochdir                 " do not automatically change directory
 set pastetoggle=<F10>            " pastetoggle (sane indentation on pastes)
 set listchars=
 set wrap
+colo hybrid
+" I like a dark tab bg
+hi TabLine ctermfg=Black ctermbg=White 
+hi TabLineFill ctermfg=Black ctermbg=White
 
 " autocomplete rails
-let g:rubycomplete_rails = 1
+"let g:rubycomplete_rails = 1
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
