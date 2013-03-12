@@ -11,6 +11,7 @@ Bundle   'w0ng/vim-hybrid'
 let g:indent_guides_enable_on_vim_startup = 0
 " for some reason the default does not include ruby
 autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+set clipboard=unnamed
 
 
 " spf13 .vimrc overrides {
