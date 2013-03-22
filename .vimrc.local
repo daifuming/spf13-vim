@@ -27,6 +27,14 @@ colo hybrid
 :hi TabLine ctermfg=Black ctermbg=Grey
 :hi TabLineFill ctermfg=Black ctermbg=White
 :hi Title ctermfg=Black ctermbg=Black
+" and dark background
+:hi Normal ctermbg=232
+
+" Folding
+set foldmethod=syntax
+nnoremap <silent><space> :exe 'normal! za'.(foldlevel('.')?'':'l')<cr>
+" <leader>space expands with zO
+map <leader><space> zO
 
 " autocomplete rails
 "let g:rubycomplete_rails = 1
