@@ -3,4 +3,5 @@ let g:spf13_no_autochdir = 1 " conflicts with turbux
 Bundle 'jgdavey/vim-turbux'
 Bundle 'jonaustin/vimux'
 Bundle 'goldfeld/vim-seek'
-
+Bundle 'jonaustin/vim-colors'
+Bundle 'w0ng/vim-hybrid'

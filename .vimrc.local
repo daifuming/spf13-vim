@@ -1,20 +1,22 @@
-" Modeline and Notes {
+" Modeline and Notes {{{
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker ft=vim
-" }
+" }}}
 
-" spf13 overrides {
+" spf13 overrides {{{
+" UnBundle has to be here not .vimrc.bundles.local...for some reason...
+UnBundle 'spf13/vim-colors'
+UnBundle 'tpope/vim-cucumber'
+UnBundle 'quentindecock/vim-cucumber-align-pipes'
 UnBundle 'spf13/vim-autoclose'
 UnBundle 'flazz/vim-colorschemes'
-UnBundle 'spf13/vim-colors'
-Bundle   'jonaustin/vim-colors'
-Bundle   'w0ng/vim-hybrid'
-let g:indent_guides_enable_on_vim_startup = 0
+UnBundle 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_enable_on_vim_startup = 0
 " for some reason the default does not include ruby
 autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 set clipboard+=unnamed
 
 
-" spf13 .vimrc overrides {
+" spf13 .vimrc overrides {{{
 set shiftwidth=2                " Use indents of 2 spaces
 set tabstop=2                   " An indentation every 2 columns
 set softtabstop=2               " Let backspace delete indent
@@ -38,12 +40,20 @@ map <leader><space> zO
 
 " autocomplete rails
 "let g:rubycomplete_rails = 1
-"   }
-" }
+"   }}}
+" }}}
 
-" Mappings {
+" Mappings {{{
 " open ctag in new tab
 nmap <leader>ct <C-w><C-]><C-w>T
+
+" map Ctrl-Shift-6 to Ctrl-q
+:nmap <C-q> :e#<cr>
+" map Ctrl-t to Ctrl-[
+:nmap <C-[> <C-t>
+
+" Quickly toggle wrap mode (for the current window)
+:nmap <leader>w :setlocal wrap!<CR>:setlocal wrap?<CR>
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
@@ -63,35 +73,12 @@ nmap <leader>l <C-W>10<
 " remap jj to escape
 inoremap jj <ESC>
 inoremap jk <ESC>
-" }
 
+" unfold with one hand
+nnoremap ;; zR
+" }}}
 
-" Plugins {
-
-  " Neosnippet {
-  " SuperTab like snippets behavior.
-  imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-  " }
-
-  " Turbux {
-  let g:turbux_command_prefix = 'bundle exec'
-  " }
-
-" Vimux {
-  " https://github.com/benmills/vimux/
-  " Config
-  " Use exising pane (not used by vim) if found instead of running split-window.
-  let VimuxUseNearestPane = 1
-  let g:VimuxOrientation = "v"
-
-  " Close vim tmux runner opened by VimuxRunCommand
-  map <Leader>vq :VimuxCloseRunner<CR>
-  " }
-" }
-
-
-" Languages {
+" Languages {{{
   " Ruby
   nmap <leader>rci :%!ruby-code-indenter<cr>
   map <leader>sqf :Rcd<cr>:!sort -u tmp/quickfix > tmp/quickfix.sort<cr>:cfile tmp/quickfix.sort<cr>
@@ -112,8 +99,39 @@ inoremap jk <ESC>
   command! RTmocks :RT spec/support/mocks.rb
 "}
 
-" unfold with one hand
-nnoremap ;; zR
-
 " HACK
 map <leader>r :lcd /ssd/code/web<cr>
+
+
+
+" Plugins {{{
+
+  " Neosnippet {{{
+  " SuperTab like snippets behavior.
+  imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  " }}}
+
+  " Turbux {{{
+  let g:turbux_command_prefix = 'bundle exec'
+  " }}}
+
+" Vimux {{{
+  " https://github.com/benmills/vimux/
+  " Config
+  " Use exising pane (not used by vim) if found instead of running split-window.
+  let VimuxUseNearestPane = 1
+  let g:VimuxOrientation = "v"
+
+  " Close vim tmux runner opened by VimuxRunCommand
+  map <Leader>vq :VimuxCloseRunner<CR>
+  " }}}
+" }}}
+
+
+"{{{
+  :let g:ctrlp_match_window_bottom = 0
+  :let g:ctrlp_match_window_reversed = 0
+  :let g:ctrlp_working_path_mode = 0
+  :let g:ctrlp_dotfiles = 0
+"}}}
