@@ -99,10 +99,6 @@ nnoremap ;; zR
   command! RTmocks :RT spec/support/mocks.rb
 "}
 
-" HACK
-map <leader>r :lcd /ssd/code/web<cr>
-
-
 
 " Plugins {{{
 
