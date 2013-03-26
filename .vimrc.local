@@ -112,7 +112,7 @@ nnoremap ;; zR
   let g:turbux_command_prefix = 'bundle exec'
   " }}}
 
-" Vimux {{{
+  " Vimux {{{
   " https://github.com/benmills/vimux/
   " Config
   " Use exising pane (not used by vim) if found instead of running split-window.
@@ -122,12 +122,15 @@ nnoremap ;; zR
   " Close vim tmux runner opened by VimuxRunCommand
   map <Leader>vq :VimuxCloseRunner<CR>
   " }}}
-" }}}
 
-
-"{{{
+  " Ctrl-P {{{
   :let g:ctrlp_match_window_bottom = 0
   :let g:ctrlp_match_window_reversed = 0
   :let g:ctrlp_working_path_mode = 0
   :let g:ctrlp_dotfiles = 0
-"}}}
+  "}}}
+
+  " Ack {{{
+  map <leader>a :Ack<space>
+  "}}}
+" }}}
