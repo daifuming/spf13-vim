@@ -97,8 +97,7 @@ nnoremap ;; zR
   " Edit mocks
   command! Rmocks :R spec/support/mocks.rb
   command! RTmocks :RT spec/support/mocks.rb
-"}
-
+"}}}
 
 " Plugins {{{
 
@@ -122,12 +121,11 @@ nnoremap ;; zR
   " Close vim tmux runner opened by VimuxRunCommand
   map <Leader>vq :VimuxCloseRunner<CR>
   " }}}
-" }}}
 
-
-"{{{
-  :let g:ctrlp_match_window_bottom = 0
-  :let g:ctrlp_match_window_reversed = 0
-  :let g:ctrlp_working_path_mode = 0
-  :let g:ctrlp_dotfiles = 0
+  " Ctrl-p {{{
+    :let g:ctrlp_match_window_bottom = 0
+    :let g:ctrlp_match_window_reversed = 0
+    :let g:ctrlp_working_path_mode = 0
+    :let g:ctrlp_dotfiles = 0
+  "}}}
 "}}}
