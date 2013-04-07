@@ -76,6 +76,9 @@ inoremap jk <ESC>
 
 " unfold with one hand
 nnoremap ;; zR
+
+" sudo write file
+:command Sudo :w !sudo tee %
 " }}}
 
 " Languages {{{
