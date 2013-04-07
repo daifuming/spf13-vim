@@ -5,3 +5,12 @@ Bundle 'jonaustin/vimux'
 Bundle 'goldfeld/vim-seek'
 Bundle 'jonaustin/vim-colors'
 Bundle 'w0ng/vim-hybrid'
+Bundle 'chrisbra/csv.vim'
+Bundle 'tpope/vim-rake'
+"Bundle 'tpope/vim-unimpaired'
+"Bundle 'tpope/vim-bundler'
+"Bundle 'tpope/vim-obsession' " probably conflicts with sessionman.vim
+"Bundle 'tpope/vim-characterize' # inserting special chars (&copy) and getting unicode codes
+"Bundle 'tpope/vim-abolish' " smarter subsitution - :%Subvert/facilit{y,ies}/building{,s}/g
+"Bundle 'tpope/vim-repeat'
+"Bundle 'tpope/vim-afterimage' # view Word/PDF files
