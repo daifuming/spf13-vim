@@ -2,10 +2,12 @@
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker ft=vim
 " }}}
 
+" spf13 overrides {{{
 " strong blowfish encryption (instead of zip)
 set cryptmethod=blowfish
 " prettier line wrap
 set showbreak=↪
+"}}}
 
 " spf13 overrides {{{
 " UnBundle has to be here not .vimrc.bundles.local...for some reason...
@@ -18,7 +20,6 @@ UnBundle 'nathanaelkane/vim-indent-guides'
 "let g:indent_guides_enable_on_vim_startup = 0
 " for some reason the default does not include ruby
 autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-
 
 " spf13 .vimrc overrides {{{
 set clipboard+=unnamed
@@ -37,12 +38,9 @@ colo hybrid
 " and dark background
 :hi Normal ctermbg=232
 
-
-
 " Folding
 set foldmethod=syntax
 nnoremap <silent><space> :exe 'normal! za'.(foldlevel('.')?'':'l')<cr>
-" <leader>space expands with zO
 map <leader><space> zO
 
  " Fold hash-style #comments
