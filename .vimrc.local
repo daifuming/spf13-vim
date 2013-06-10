@@ -64,13 +64,17 @@ nmap <leader>ct <C-w><C-]><C-w>T
 nmap <leader>mt <C-W>T
 
 
-" map Ctrl-Shift-6 to Ctrl-q
-:nmap <C-q> :e#<cr>
+" map Ctrl-Shift-6 to Ctrl-w
+:nmap <C-w> :e#<cr>
 " map Ctrl-t to Ctrl-[
 :nmap <C-[> <C-t>
 
 " Quickly toggle wrap mode (for the current window)
 :nmap <leader>w :setlocal wrap!<CR>:setlocal wrap?<CR>
+
+" save / quit
+map <C-s> :w<cr>
+map <C-q> :q<cr>
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
