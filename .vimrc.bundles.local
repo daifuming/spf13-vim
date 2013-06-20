@@ -1,5 +1,6 @@
 let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming', 'ruby', 'javascript', 'html', 'misc']
 let g:spf13_no_autochdir = 1 " conflicts with turbux
+"let g:spf13_use_old_powerline = 1
 Bundle 'jgdavey/vim-turbux'
 Bundle 'jonaustin/vimux'
 Bundle 'goldfeld/vim-seek'
@@ -8,10 +9,12 @@ Bundle 'w0ng/vim-hybrid'
 Bundle 'chrisbra/csv.vim'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-repeat'
 "Bundle 'tpope/vim-unimpaired'
 "Bundle 'tpope/vim-bundler'
 "Bundle 'tpope/vim-obsession' " probably conflicts with sessionman.vim
 "Bundle 'tpope/vim-characterize' # inserting special chars (&copy) and getting unicode codes
 "Bundle 'tpope/vim-abolish' " smarter subsitution - :%Subvert/facilit{y,ies}/building{,s}/g
-"Bundle 'tpope/vim-repeat'
 "Bundle 'tpope/vim-afterimage' # view Word/PDF files
+"Bundle 'tpope/vim-endwise' # conflicts with...neocomplcache i think
+

@@ -9,7 +9,7 @@ set cryptmethod=blowfish
 set showbreak=↪
 "}}}
 
-" spf13 overrides {{{
+" spf13 plugin removal {{{
 " UnBundle has to be here not .vimrc.bundles.local...for some reason...
 UnBundle 'spf13/vim-colors'
 UnBundle 'tpope/vim-cucumber'
@@ -17,6 +17,7 @@ UnBundle 'quentindecock/vim-cucumber-align-pipes'
 UnBundle 'spf13/vim-autoclose'
 UnBundle 'flazz/vim-colorschemes'
 UnBundle 'nathanaelkane/vim-indent-guides'
+UnBundle 'scrooloose/nerdtree'
 "let g:indent_guides_enable_on_vim_startup = 0
 " for some reason the default does not include ruby
 autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace()
@@ -30,6 +31,8 @@ set noautochdir                 " do not automatically change directory
 set pastetoggle=<F10>           " pastetoggle (sane indentation on pastes)
 set wrap
 set shiftround                  " When at 3 spaces and I hit >>, go to 4, not 5.
+" spf13 has this mapped to NERDTreeToggle, but I want to be able to scroll with C-e/C-y
+unmap <C-e>
 
 " Folding
 set foldmethod=syntax
@@ -44,9 +47,9 @@ map <leader><space> zO
 " Colors {{{
 colo hybrid
 " I like a dark tab bg
-hi TabLine ctermfg=Black ctermbg=Grey
+hi TabLine ctermfg=Black ctermbg=Yellow
 hi TabLineFill ctermfg=Black ctermbg=White
-hi Title ctermfg=Black ctermbg=Black
+hi Title ctermfg=Black ctermbg=Gray
 " and dark background
 hi Normal ctermbg=232
 " }}}
@@ -61,8 +64,8 @@ nmap <leader>mt <C-W>T
 " tabnew
 map <leader>tn :tabnew
 
-" map Ctrl-Shift-6 to Ctrl-w
-nmap <C-w> :e#<cr>
+" map Ctrl-Shift-6 to Ctrl-x
+nmap <C-x> :e#<cr>
 " map Ctrl-t to Ctrl-[
 nmap <C-[> <C-t>
 
@@ -132,7 +135,7 @@ map K <Nop>
   "imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
   "smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
   " }}}
- 
+
   " Neocomplcache {{{
   " Disable auto popup
   let g:neocomplcache_disable_auto_complete = 1
