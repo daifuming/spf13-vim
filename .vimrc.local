@@ -105,6 +105,29 @@ command Sudo :w !sudo tee %
 map Q <Nop>
 " Disable K looking stuff up
 map K <Nop>
+
+" Alt-# to switch (arghh..starting with a number always seems to assume you're
+" jumping to a number and messes up the command line.)
+"nnoremap <A-1> 1gt
+"nnoremap <A-2> 2gt
+"nnoremap <A-3> 3gt
+"nnoremap <A-4> 4gt
+"nnoremap <A-5> 5gt
+"nnoremap <A-6> 6gt
+"nnoremap <A-7> 7gt
+"nnoremap <A-8> 8gt
+"nnoremap <A-9> 9gt
+"nnoremap <A-0> 0gt
+"nnoremap <Esc>1 gt1
+"nnoremap <Esc>2 gt2
+"nnoremap <Esc>3 gt3
+"nnoremap <Esc>4 gt4
+"nnoremap <Esc>5 gt5
+"nnoremap <Esc>6 gt6
+"nnoremap <Esc>7 gt7
+"nnoremap <Esc>8 gt8
+"nnoremap <Esc>9 gt9
+"nnoremap <Esc>0 gt0
 " }}}
 
 " Languages {{{
@@ -148,7 +171,8 @@ map K <Nop>
   " }}}
 
   " Turbux {{{
-  let g:turbux_command_prefix = 'bundle exec'
+  let g:turbux_command_prefix = 'zeus'
+  nmap <leader>b :let turbux_command_prefix='bundle exec'<cr>
   " }}}
 
   " Vimux {{{
