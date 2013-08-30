@@ -25,8 +25,6 @@ autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace(
 
 set textwidth=80
 
-let g:airline_powerline_fonts=1
-
 " spf13 .vimrc overrides {{{
 set clipboard+=unnamed
 set shiftwidth=2                " Use indents of 2 spaces
