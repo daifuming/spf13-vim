@@ -25,7 +25,10 @@ autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace(
 
 set textwidth=80
 
-let g:airline_powerline_fonts=1
+"let g:airline_powerline_fonts=1
+
+" Fix for GitGutter: https://github.com/airblade/vim-gitgutter/issues/101
+set shell=/bin/bash
 
 " spf13 .vimrc overrides {{{
 set clipboard+=unnamed
