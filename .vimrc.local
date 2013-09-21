@@ -172,6 +172,7 @@ map K <Nop>
 
   " NeoComplete {{{
   " <CR>: close popup and save indent. (So I don't have hit enter 3 times to get a newline)
+  " https://github.com/Shougo/neocomplcache.vim/issues/88
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
   function! s:my_cr_function()
     return neocomplete#smart_close_popup() . "\<CR>"
