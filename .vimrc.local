@@ -25,6 +25,8 @@ autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace(
 
 set textwidth=80
 
+set shell=/bin/bash
+
 " spf13 .vimrc overrides {{{
 set clipboard+=unnamed
 set shiftwidth=2                " Use indents of 2 spaces
@@ -155,6 +157,14 @@ map K <Nop>
 "}}}
 
 " Plugins {{{
+
+  " NeoComplete {{{
+  " <CR>: close popup and save indent. (So I don't have hit enter 3 times to get a newline)
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return neocomplete#smart_close_popup() . "\<CR>"
+  endfunction
+  " }}}
 
   " Neosnippet {{{
   imap <C-k>     <Plug>(neosnippet_expand_or_jump)
