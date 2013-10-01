@@ -18,13 +18,17 @@ UnBundle 'spf13/vim-autoclose'
 UnBundle 'flazz/vim-colorschemes'
 UnBundle 'nathanaelkane/vim-indent-guides'
 UnBundle 'scrooloose/nerdtree'
+UnBundle 'bling/vim-airline'
 "let g:indent_guides_enable_on_vim_startup = 0
 " for some reason the default does not include ruby
 autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 set textwidth=80
 
-let g:airline_powerline_fonts=1
+"let g:airline_powerline_fonts=1
+
+" Fix for GitGutter: https://github.com/airblade/vim-gitgutter/issues/101
+set shell=/bin/bash
 
 " spf13 .vimrc overrides {{{
 set clipboard+=unnamed
@@ -42,6 +46,15 @@ unmap <C-e>
 set foldmethod=syntax
 nnoremap <silent><space> :exe 'normal! za'.(foldlevel('.')?'':'l')<cr>
 map <leader><space> zO
+
+" speed {{{
+set ttyfast
+set lazyredraw
+
+" Use the old regex engine
+" http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
+set re=1
+" }}}
 
 " autocomplete rails
 "let g:rubycomplete_rails = 1
@@ -157,21 +170,32 @@ map K <Nop>
 
 " Plugins {{{
 
-  " Neosnippet {{{
-  " SuperTab like snippets behavior (use C-k otherwise).
-  "imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-  "smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  " NeoComplete {{{
+  " <CR>: close popup and save indent. (So I don't have hit enter 3 times to get a newline)
+  " https://github.com/Shougo/neocomplcache.vim/issues/88
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return neocomplete#smart_close_popup() . "\<CR>"
+  endfunction
   " }}}
 
-  " Neocomplcache {{{
-  " Disable auto popup
-  let g:neocomplcache_disable_auto_complete = 1
-  " Popup on tab
-  inoremap <expr><TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : "\<C-x>\<C-u>"
-  function! s:check_back_space()"{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~ '\s'
-  endfunction"}}
+  " Neosnippet {{{
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+  " SuperTab like snippets behavior.
+  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+        \ "\<Plug>(neosnippet_expand_or_jump)"
+        \: pumvisible() ? "\<C-n>" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+        \ "\<Plug>(neosnippet_expand_or_jump)"
+        \: "\<TAB>"
+
+  " For snippet_complete marker.
+  if has('conceal')
+    set conceallevel=2 concealcursor=i
+  endif
   " }}}
 
   " Turbux {{{

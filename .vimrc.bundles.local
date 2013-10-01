@@ -10,6 +10,8 @@ Bundle 'chrisbra/csv.vim'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
+Bundle 'vim-scripts/Tabmerge'
+Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
 "Bundle 'tpope/vim-unimpaired'
 "Bundle 'tpope/vim-bundler'
 "Bundle 'tpope/vim-obsession' " probably conflicts with sessionman.vim
