@@ -12,6 +12,7 @@ Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
 Bundle 'vim-scripts/Tabmerge'
 Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+Bundle 'gcmt/plum'
 "Bundle 'tpope/vim-unimpaired'
 "Bundle 'tpope/vim-bundler'
 "Bundle 'tpope/vim-obsession' " probably conflicts with sessionman.vim
